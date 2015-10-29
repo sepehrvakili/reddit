@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 20151029192619) do
     t.string   "last_name",  null: false
     t.string   "email",      null: false
     t.string   "password",   null: false
+
+ActiveRecord::Schema.define(version: 20151029194955) do
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.string   "url",        null: false
+    t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
