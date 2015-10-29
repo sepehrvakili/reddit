@@ -1,28 +1,62 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#Set up the routes first
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+#Model Definitions:
+
+##Users
+
+Column:
+
+- first_name
+- last_name
+- email (add_index)
+- password
+
+has_many :posts
+
+##Posts
+
+Columns:
+
+- link, null: false
+
+Associations:
+
+- has_many :comments
+- belongs_to :user
+
+##Comments
+
+- content, null: false
+
+Associations:
+
+- belongs_to :post
+
+
+#Route Definitions:
+
+##Registrations Routes
+
+- get "signup", to: "registrations#new"
+- post "signup", to: "registrations#create"
+
+##Sessions Routes
+
+- get "login", to: "sessions#new"
+- post "login", to: "sessions#create"
+- delete "login", to: "sessions#destroy"
+
+##Post Routes
+- root to: "posts#index"
+- get "posts", to: "posts#index"
+- get "posts/new", to: "posts#new"
+- get "posts/:id", to: "posts#show", as "post"
+- post "posts", to: "posts#create", as "post"
+- get "posts/:id/edit", to: "posts#edit", as "post_edit"
+- put "posts/:id", to: "posts#update"
+
+##Comments Routes
+
+- post "posts/:id/comments", to: "comments#create", as "comments"
