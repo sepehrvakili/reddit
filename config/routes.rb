@@ -21,10 +21,11 @@ Rails.application.routes.draw do
   root to: "posts#index"
   get "posts", to: "posts#index"
   get "posts/new", to: "posts#new"
+  post "posts", to: "posts#create"
   get "posts/:id", to: "posts#show", as: "post"
-  post "posts", to: "posts#create", as: "post"
   get "posts/:id/edit", to: "posts#edit", as: "post_edit"
   put "posts/:id", to: "posts#update"
+  delete "posts/:id", to: "posts#destroy"
 
   post "posts/:id/comment", to: "comments#create", as: "comments"
 
