@@ -1,0 +1,11 @@
+<div class="post-field">
+  <%= label_tag "Title: " %>
+  <%= text_field_tag :title, @post.title %>
+</div>
+
+<div class="post-field">
+  <%= label_tag "URL: " %>
+  <%= text_field_tag :tags, @post.url %>
+</div>
+<br>
+<%= submit_tag "Post" %>
