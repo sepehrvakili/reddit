@@ -1,0 +1,32 @@
+<h2><%= @post.title %></h2>
+<h4>Tagged: <%= @post.tag_names %></h4>
+<h4>Written on: <%= @post.written_at %></h4>
+
+<div class="post-body">
+  <%= simple_format(@post.url) %>
+</div>
+
+<%= link_to "Posts Index", posts_path %>
+<%= link_to "Edit this Post", post_edit_path(@post) %>
+
+<div class="comment-form">
+    <h3>Add a Comment</h3>
+    <%= form_tag(comments_path(@post)) do %>
+        <div class="comment-field">
+          <%= label_tag "Comment: " %>
+          <%= text_area_tag :comment, nil, cols: 40, rows: 5 %>
+        </div>
+
+        <%= submit_tag "Submit Comment" %>
+    <% end %>
+</div>
+
+<h2>Comments:</h2>
+<div class="comments">
+    <% @post.comments.each do |comment| %>
+        <div class="comment">
+            <em>Written: <%= time_ago_in_words(comment.created_at) %> ago</em><br/>
+            <%= simple_format(comment.content) %>
+        </div>
+    <% end %>
+</div>
