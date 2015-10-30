@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-	def new
+  before_action :authenticate_user!, except: [:index, :show]
+
+  def new
 		@post = Post.new
 		render :new
 	end
@@ -10,7 +12,12 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		binding.pry
+    post = current_user.posts.create(
+    	title: params[:title],
+			url: params[:url],
+      created_at: DateTime.now
+      )
+    redirect_to post_path(post)
 	end
 
 	def edit
@@ -22,5 +29,16 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		render :show
 	end
+
+	def update
+		post = Post.find(params[:id])
+		post.update(
+			title: params[:title],
+			url: params[:url],
+			updated_at: DateTime.now
+			)
+		redirect_to post_path(post)
+	end
+
 
 end
