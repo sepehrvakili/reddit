@@ -13,5 +13,14 @@ class PostsController < ApplicationController
 		binding.pry
 	end
 
+	def edit
+		@post = Post.find(params[:id])
+		render :edit
+	end
+
+	def show
+		@post = Post.find(params[:id])
+		render :show
+	end
 
 end

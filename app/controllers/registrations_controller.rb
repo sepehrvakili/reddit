@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
                      email: params[:email],
                      password: params[:password])
     if @user.save
-      redirects_to post_path
+      redirect_to posts_path
     else
       render :new
     end
