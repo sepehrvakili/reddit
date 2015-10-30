@@ -1,0 +1,7 @@
+<h2>New Post</h2>
+<%= form_tag(posts_path) do %>
+	<%= render partial: "form" %>
+<% end %>
+<br>
+<%= link_to "Cancel", :back %>
+<br>
