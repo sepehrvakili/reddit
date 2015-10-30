@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   ##Sessions Routes
 
-  get "login", to: "sessions#new"
-  post "login", to: "sessions#create"
-  delete "login", to: "sessions#destroy"
+  get "login", to: "session#new"
+  post "login", to: "session#create"
+  delete "login", to: "session#destroy"
 
   ##Posts Routes
 
