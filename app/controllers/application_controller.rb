@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    session[:user_id] && User.find(user_id)
+    user_id = session[:user_id]
+    user_id && User.find(user_id)
   end
 
   def authenticate_user!
