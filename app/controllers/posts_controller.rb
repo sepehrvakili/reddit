@@ -14,8 +14,7 @@ class PostsController < ApplicationController
 	def create
     post = current_user.posts.create(
     	title: params[:title],
-			url: params[:url],
-      created_at: DateTime.now
+			url: params[:url]
       )
     redirect_to post_path(post)
 	end
@@ -40,5 +39,15 @@ class PostsController < ApplicationController
 		redirect_to post_path(post)
 	end
 
+  def destroy
+    post = Post.find(params[:id])
+    if current_user.id == post.user_id
+      flash[:notice] = "Destroyed the post: #{post.title}"
+      post.destroy
+    else
+      flash[:notice] = "You don't have access to this post."
+    end
+    redirect_to posts_path
+  end
 
 end
