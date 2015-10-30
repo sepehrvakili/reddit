@@ -2,8 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:id])
-    @post.comments.create!(content: params[:comment],
-                           created_at: DateTime.now)
+    @post.comments.create!(content: params[:comment])
     redirect_to post_path(@post)
   end
 
@@ -11,9 +10,10 @@ class CommentsController < ApplicationController
     post = Post.find(params[:id])
     if current_user.id == post.user_id
       flash[:notice] = "comment successfully deleted"
-      post.destroy
+      post.comments.destroy
     else
       flash[:notice] = "That action can not be completed"
-      redirect_to posts_path
     end
+    redirect_to posts_path
   end
+end
