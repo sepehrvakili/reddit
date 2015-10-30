@@ -26,9 +26,9 @@ Rails.application.routes.draw do
   get "posts/:id/edit", to: "posts#edit", as: "post_edit"
   put "posts/:id", to: "posts#update"
   delete "posts/:id", to: "posts#destroy"
-
+ 
   post "posts/:id/comment", to: "comments#create", as: "comments"
-
+  delete "posts/:id/comment", to: "comments#destroy" 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
