@@ -3,7 +3,8 @@ class Post < ActiveRecord::Base
   acts_as_votable
   belongs_to :user
   max_paginates_per 3
+  votes=0
   def score
-    self.get_upvotes.size - self.get_downvotes.size
+    votes= self.get_upvotes.size || self.get_downvotes.size
   end
 end
