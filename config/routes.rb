@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   delete "login", to: "session#destroy"
 
   ##Posts Routes
-
+  
   root to: "posts#index"
   get "posts", to: "posts#index"
   get "posts/new", to: "posts#new"
@@ -26,9 +26,9 @@ Rails.application.routes.draw do
   get "posts/:id/edit", to: "posts#edit", as: "post_edit"
   put "posts/:id", to: "posts#update"
   delete "posts/:id", to: "posts#destroy"
- 
+
   post "posts/:id/comment", to: "comments#create", as: "comments"
-  delete "posts/:id/comment", to: "comments#destroy" 
+  delete "posts/:id/comment", to: "comments#destroy"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -40,8 +40,12 @@ Rails.application.routes.draw do
   #   resources :products
 
   # Example resource route with options:
-  #   resources :products do
-  #     member do
+  resources :posts do
+    member do
+      put "like", to: "posts#upvote"
+      put "dislike", to: "posts#downvote"
+    end
+  end
   #       get 'short'
   #       post 'toggle'
   #     end

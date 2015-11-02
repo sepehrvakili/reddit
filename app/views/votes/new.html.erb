@@ -1,0 +1,9 @@
+<h2>votes</h2>
+<%div class="votes-form"%>
+<%= form_tag(posts_path) do%>
+<%= submit_tag "+1", upvote_post_path(post), method: :post %>
+<%= submit_tag "-1", downvote_post_path(post), method: :post %>
+<%= link_to "Show", post %>
+<%= link_to "Edit", edit_post_path(post) %>
+<%= link_to "Destroy", post, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
