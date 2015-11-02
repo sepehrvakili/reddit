@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_secure_password
   has_many :posts
   acts_as_voter
   validates_length_of :password, minimum: 10
