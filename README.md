@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sepehrvakili/reddit.svg?branch=master)](http://travis-ci.org/sepehrvakili/reddit)
+
 #Set up the routes first
 
 
