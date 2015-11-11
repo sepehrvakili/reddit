@@ -29,13 +29,6 @@ ActiveRecord::Schema.define(version: 20151102200806) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts_voters", force: :cascade do |t|
-    t.integer  "post_id",    null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      null: false
     t.string   "last_name",       null: false
