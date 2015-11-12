@@ -2,8 +2,10 @@
 
 one:
   content: MyString
-  post_id: 
+  post: one
+  user: steve
 
 two:
   content: MyString
-  post_id: 
+  post: one
+  user: bill

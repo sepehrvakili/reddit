@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: 
-  url: 
-  user_id: 1
+  title: Steve Jobs Bio
+  url: http://stevejobsbio.com
+  user: steve
 
 two:
-  title: 
-  url: 
-  user_id: 1
+  title: For the love of Ruby
+  url: http://tenderlovemaking.com
+  user: bill

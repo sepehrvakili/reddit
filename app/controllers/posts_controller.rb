@@ -13,11 +13,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.create(
+    @post = current_user.posts.create(
       title: params[:title],
-      url: if params[:url].start_with?('http://', 'https://') then params[:url] else params[:url].prepend('http://') end
+      url: params[:url]
     )
-    redirect_to post_path(post)
+    redirect_to post_path(@post)
   end
 
   def edit

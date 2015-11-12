@@ -5,11 +5,16 @@ class PostTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-  def test_is_new_post_valid
-  	post = user(first_name: "John", last_name: "Doe", email: "john@email.com", password_digest: "johndoeishere").posts.new(
-  		url: "http://johndoeishere.com", title: "John Doe Is Here"
-  		)
-  	assert post.valid?
+  test "post must have title and url" do
+  	post = posts(:one)
+  	post.title = nil
+  	post.url = nil
+  	refute post.save
   end
+
+  test "post has many comments" do
+  	post = posts(:one)
+  	assert post.comments.count > 1
+	end
 
 end

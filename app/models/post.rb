@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
+  validates :url, :title, :user_id, presence: true
   acts_as_votable
   belongs_to :user
   max_paginates_per 3
