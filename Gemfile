@@ -31,6 +31,9 @@ gem 'acts_as_votable'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# Use Devise for users
+gem 'devise'
+
 
 
 group :development, :test do
