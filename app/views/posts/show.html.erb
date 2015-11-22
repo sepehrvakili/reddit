@@ -28,7 +28,7 @@
       <% if session[:user_id] == @post.user_id %>
         <%= link_to "Delete this comment", comments_path(comment), method: :delete %>
       <% end %>
-      Comment by: <%= User.find(comment.user_id).first_name %>
+      Comment by: <%= User.find(comment.user_id).email %>
     </div>
     <br>
     <% end %>
