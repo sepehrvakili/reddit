@@ -3,10 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-	has_secure_password
+	#Remove has secure pass since we're now using devise:
+  #has_secure_password
   has_many :posts
   acts_as_voter
-  validates_length_of :password, minimum: 10
-  validates_uniqueness_of :email
-  validates_presence_of :first_name, :last_name, :email, :password
+
 end
